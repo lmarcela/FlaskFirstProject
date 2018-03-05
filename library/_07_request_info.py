@@ -9,6 +9,7 @@ Docs: http://flask.pocoo.org/docs/0.12/api/#incoming-request-data
 """
 
 from flask import Flask, render_template, request
+# Si genera error el import hay que correr este comando: pip install requests
 import requests
 
 app = Flask(__name__)
@@ -18,6 +19,7 @@ app = Flask(__name__)
 def request_info():
     # Get location info using https://freegeoip.net/
     geoip_url = 'http://freegeoip.net/json/{}'.format(request.remote_addr)
+
     client_location = requests.get(geoip_url).json()
     return render_template('request/info.html',
                            client_location=client_location)
