@@ -29,6 +29,22 @@ PASO 5) Para insertar datos en la base de datos correr por consola el comando:
 		//Esto insertara datos en la bd con las instrucciones definidas en el archivo initial-data.sql
 		sqlite3 library.db < initial-data.sql
 		
+PASO 6) import g: permite declarar variables globales. @app.before_request: permite definir algo que siempre se va a ejecutar antes de cualquier proceso (puede ser util para verificar si un usuario se encuentra logueado).
+
+		//Esto se ejecutara siempre antes de hacer un proceso en las rutas
+		@app.before_request
+		def before_request():
+			g.db = connect_db()
+			
+		//Y puede ser usado por otros de forma global
+		@app.route('/')
+		def hello_world():
+			cursor = g.db.execute('SELECT id, name FROM author;')
+			authors = [dict(id=row[0], name=row[1]) for row in cursor.fetchall()]
+			return render_template('database/authors_template_engine.html', authors=authors)
+
+			
+		
 ## Comandos Flask:
 
 - Empezar app: python run_app.py
