@@ -17,7 +17,18 @@ PASO 2) Activar el ambiente, instalar Flask, ejecutar archivo :
 
 		NOTA: Se descargo proyecto de base de https://github.com/rmotr/flask-introduction
 
+PASO 3) Seguir explicacion del curso de Udemy: https://www.udemy.com/python-flask-tutorial-step-by-step/learn/v4/overview
 
+PASO 4) Para la parte de bases de datos correr por consola el comando: 
+		
+		//Esto creara una bd sqlite con el esquema definido en el archivo library-schema.sql
+		sqlite3 library.db < library-schema.sql
+
+PASO 5) Para insertar datos en la base de datos correr por consola el comando:
+
+		//Esto insertara datos en la bd con las instrucciones definidas en el archivo initial-data.sql
+		sqlite3 library.db < initial-data.sql
+		
 ## Comandos Flask:
 
 - Empezar app: python run_app.py
