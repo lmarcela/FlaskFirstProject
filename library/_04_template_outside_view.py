@@ -15,4 +15,5 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     library_name = "Poe"
+    # Por defecto los templates se ubican en la carpeta templates - library/templates/index.html
     return render_template('index.html', library_name=library_name)
