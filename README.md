@@ -45,6 +45,7 @@ PASO 6) import g: permite declarar variables globales. @app.before_request: perm
 
 PASO 7) @app.route('/', methods=['POST', 'GET']). Metodos de acceso a la ruta. Por defecto es GET.
 
+PASO 8) href="{{ url_for('static', filename='bootstrap.css') }}". Referencia a css.
 		
 ## Comandos Flask:
 
