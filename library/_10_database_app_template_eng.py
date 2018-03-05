@@ -20,6 +20,6 @@ def before_request():
 
 @app.route('/')
 def hello_world():
-    cursor = g.db.execute('SELECT id, name FROM author;')
-    authors = [dict(id=row[0], name=row[1]) for row in cursor.fetchall()]
+    cursor = g.db.execute('SELECT id, name, country_id FROM author;')
+    authors = [dict(id=row[0], name=row[1], country=row[2]) for row in cursor.fetchall()]
     return render_template('database/authors_template_engine.html', authors=authors)
