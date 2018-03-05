@@ -43,7 +43,8 @@ PASO 6) import g: permite declarar variables globales. @app.before_request: perm
 			authors = [dict(id=row[0], name=row[1]) for row in cursor.fetchall()]
 			return render_template('database/authors_template_engine.html', authors=authors)
 
-			
+PASO 7) @app.route('/', methods=['POST', 'GET']). Metodos de acceso a la ruta. Por defecto es GET.
+
 		
 ## Comandos Flask:
 
