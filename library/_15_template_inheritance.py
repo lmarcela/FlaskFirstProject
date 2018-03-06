@@ -1,6 +1,7 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 import sqlite3
 from . import config
+
 
 app = Flask(__name__)
 
@@ -24,4 +25,7 @@ def hello_world():
             'author_id': int(request.form['author']),
         })
         db.commit()
-        return "The new book {} was correctly saved".format(request.form['title'])
+       
+        return jsonify(request.form)
+        """return "The new book {} was correctly saved".format(request.form['title'])"""
+
